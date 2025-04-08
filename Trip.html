@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalpa Trip Itinerary</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://static.toiimg.com/thumb/93246424/Kalpa.jpg?width=1200&height=900') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    header {
+      background: #3f51b5;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .day {
+      background: white;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .day h2 {
+      margin-top: 0;
+      color: #3f51b5;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #3f51b5;
+      color: white;
+      margin-top: 2rem;
+    }
+    .nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #3f51b5;
+      font-weight: bold;
+      background: #e0e7ff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+    
+  <header>
+    <h1>KALPA TRIP ITINERARY</h1>
+    <p>Kahin pahunchne ke liye, kahin se nikalnaa bahut zaruri hota hai.<br> Sahi waqt pe kat lenaa chaahiye, Nahin to gile shikve hone lagte hain !!</p>
+  </header>
+
+  <div class="container" id="itinerary"></div>
+
+  <div class="nav">
+    <a href="trip-cost.html">View Trip Cost</a>
+  </div>
+
+  <footer>
+    Made with ❤️ for my friends
+  </footer>
+
+  <script>
+    const itinerary = [
+      {
+        day: "Day 1",
+        title: "Amritsar to Chandigarh",
+        details: "Early morning departure from Amritsar. Train to Chandigarh (approx.4 hours). Then moving forward to Solan, and then night stay at Chail, with bonfire at night."
+      },
+      {
+        day: "Day 2",
+        title: "Chail to Narkanda",
+        details: "Scenic drive through Kufri. Reach Narkanda in 3 hours by afternoon. Stay in a FRH Tanni Jubbar with mountain views and local sightseeing."
+      },
+      {
+        day: "Day 3",
+        title: "Reaching Kalpa",
+        details: "Scenic drive through Rampur, Reckong Peo. 4 hours drive it is from Narkanda to Kalpa. Visit Suicide Point, Roghi Village,Kohti Village, Kalpa Monastery and enjoy the majestic Kinnaur Kailash range."
+      },
+      {
+        day: "Day 4",
+        title: "Kalpa to Sangla & Chitkul",
+        details: "Morning drive to Sangla. Explore Chitkul (the last Indian village). Chakka Trek in Kalpa is must to do trek for youngesters. Return and overnight in Sangla."
+      },
+      {
+        day: "Day 5",
+        title: "Return Journey to Chail",
+        details: "Drive back from Sangla to Chail. Rest and enjoy a peaceful evening in Chail."
+      },
+      {
+        day: "Day 6",
+        title: "Chail to Amritsar",
+        details: "Depart early and head back to Amritsar with unforgettable memories."
+      }
+    ];
+
+    const itineraryContainer = document.getElementById("itinerary");
+
+itinerary.forEach((item, index) => {
+  const dayDiv = document.createElement("div");
+  dayDiv.className = "day";
+
+  // Generate day file name dynamically (day1.html, day2.html, etc.)
+  const dayFile = `day${index + 1}.html`;
+
+  dayDiv.innerHTML = `
+    <a href="${dayFile}" style="text-decoration: none; color: inherit;">
+      <h2>${item.day}: ${item.title}</h2>
+      <p>${item.details}</p>
+    </a>
+  `;
+  
+  itineraryContainer.appendChild(dayDiv);
+});
+
+  </script>
+
+<!-- Audio Element -->
+<audio id="bg-music" loop>
+    <source src="kalpa-music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script>
+    const audio = document.getElementById("bg-music");
+    audio.volume = 0;
+    let started = false;
+  
+    function startMusic() {
+      if (started) return;
+      started = true;
+  
+      audio.play().then(() => {
+        let volume = 0;
+        const fadeIn = setInterval(() => {
+          if (volume < 0.4) {
+            volume += 0.02; // Faster fade-in
+            audio.volume = volume;
+          } else {
+            audio.volume = 0.4; // Cap volume here
+            clearInterval(fadeIn);
+          }
+        }, 100); // Faster interval
+      }).catch(err => console.log("Autoplay error:", err));
+    }
+  
+    // Trigger on first user interaction
+    window.addEventListener("click", startMusic);
+    window.addEventListener("scroll", startMusic);
+  
+    // Prevent user from stopping
+    audio.addEventListener("pause", () => {
+      if (started) audio.play();
+    });
+  </script>
+  
+  
+</body>
+</html>
