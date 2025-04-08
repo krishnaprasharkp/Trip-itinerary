@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 5 - Return Journey to Chail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .hero {
+      background: url('https://t3.ftcdn.net/jpg/03/57/52/42/360_F_357524269_psm2Da4r0CscZQ7U7rdvJjRXkXFu5CMl.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+      text-align: center;
+      color: #fff;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    a.button {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #fff;
+      color: #222;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #ddd;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .content {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Day 5: Return Journey to Chail</h1>
+      <p>Drive back from Sangla to Chail. Rest and enjoy a peaceful evening in Chail.</p>
+      <a href="day6.html" class="button"> Move to Day 6</a>
+    </div>
+  </div>
+</body>
+</html>
+
